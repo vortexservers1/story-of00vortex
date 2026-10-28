@@ -1,192 +1,23 @@
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0714">
-<meta name="description" content="Portfólio da Vortex Servers: projetos de organização e configuração de servidores Discord.">
-<title>Portfólio | Vortex Servers</title>
-<style>
-:root{--bg:#0b0714;--surface:#120c1c;--card:#171022;--border:#30213f;--purple:#a855f7;--purple2:#7e22ce;--text:#f7f3fc;--muted:#aaa0ba}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,90%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(11,7,20,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px;white-space:nowrap}
-.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--purple2),var(--purple));font-size:21px}
-.brand em{font-style:normal;color:var(--purple)}
-.links{display:flex;align-items:center;gap:24px}
-.links a{font-size:13px;color:var(--muted);transition:.2s}
-.links a:hover,.links a.active{color:#d8b4fe}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;border:1px solid transparent;font-size:13px;font-weight:750;transition:.2s;cursor:pointer}
-.btn:hover{transform:translateY(-2px)}
-.primary{background:var(--purple2);color:white}
-.primary:hover{background:var(--purple)}
-.outline{border-color:var(--border);background:transparent;color:var(--text)}
-.outline:hover{border-color:var(--purple)}
-.hero{padding:80px 0 55px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:var(--purple2);filter:blur(140px);opacity:.15;right:-100px;top:-150px;pointer-events:none}
-.hero-inner{position:relative;max-width:800px}
-.eyebrow,.section-label{color:#c084fc;font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #43235d;background:#1b1028;border-radius:999px;margin-bottom:20px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--purple)}
-h1{font-size:clamp(36px,5.8vw,59px);line-height:1.1;letter-spacing:-1.7px;margin-bottom:18px}
-h1 span{color:var(--purple)}
-.lead{font-size:15px;color:var(--muted);max-width:650px}
-.section{padding:50px 0 78px}
-.heading{max-width:680px;margin-bottom:27px}
-.heading h2{font-size:clamp(26px,4vw,36px);line-height:1.2;margin:9px 0 12px}
-.heading p{font-size:14px;color:var(--muted)}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0 0}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px}
-.stat strong{display:block;font-size:21px;color:#d8b4fe;margin-bottom:2px}
-.stat span{font-size:12px;color:var(--muted)}
-.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
-.filter{background:var(--surface);color:var(--muted);border:1px solid var(--border);padding:9px 15px;border-radius:9px;font-size:12px;font-weight:750;cursor:pointer}
-.filter:hover,.filter.active{background:#32154a;color:#f3e8ff;border-color:var(--purple)}
-.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.project{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:15px;padding:25px;min-height:265px;transition:border-color .2s,transform .2s}
-.project:hover{border-color:var(--purple2);transform:translateY(-3px)}
-.project-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
-.project-mark{display:grid;place-items:center;width:47px;height:47px;border-radius:13px;background:linear-gradient(135deg,#301344,#20112f);border:1px solid #43235d;color:#d8b4fe;font-weight:900;font-size:21px}
-.tag{font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:#d8b4fe;background:#29143c;border:1px solid #43235d;padding:5px 8px;border-radius:6px}
-.project h3{font-size:20px;margin-bottom:7px}
-.project p{font-size:13px;color:var(--muted);margin-bottom:18px}
-.project-details{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
-.detail{font-size:11px;color:#d8cce7;background:#21162e;border:1px solid #352344;border-radius:6px;padding:5px 8px}
-.empty{display:none;padding:25px;border:1px dashed var(--border);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}
-.callout{display:flex;justify-content:space-between;align-items:center;gap:25px;background:linear-gradient(115deg,#20112f,#120c1c);border:1px solid #43235d;border-radius:17px;padding:30px}
-.callout h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin:8px 0}
-.callout p{font-size:13px;color:var(--muted);max-width:560px}
-.footer{border-top:1px solid var(--border);padding:25px 0}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-.footer p,.footer-links{font-size:12px;color:#8d829b}
-.footer-links{display:flex;gap:18px;flex-wrap:wrap}
-.footer a:hover{color:#c084fc}
-@media(max-width:850px){.links{gap:13px}.links a{font-size:12px}.nav-contact{display:none}}
-@media(max-width:600px){.nav{min-height:67px}.brand{font-size:12px;gap:7px}.brand-mark{width:34px;height:34px}.links{gap:11px}.links a{font-size:11px}.hero{padding:63px 0 42px}.section{padding:42px 0 60px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:17px}.stat span{font-size:10px}.projects{grid-template-columns:1fr}.project{padding:22px;min-height:0}.callout{align-items:flex-start;flex-direction:column;padding:24px}.footer-inner{align-items:flex-start;flex-direction:column}}
-</style>
-</head>
-<body>
-<header>
-  <div class="container nav">
-    <a class="brand" href="index.html"><span class="brand-mark">V</span><span>VORTEX <em>SERVERS</em></span></a>
-    <nav class="links" aria-label="Navegação">
-      <a href="index.html">Início</a>
-      <a href="index.html#servicos">Serviços</a>
-      <a href="index.html#planos">Planos</a>
-      <a class="active" href="portfolio.html">Portfólio</a>
-    </nav>
-    <a class="btn primary nav-contact" href="https://discord.gg/SjYt47V4yb" target="_blank" rel="noopener noreferrer">Contato ↗</a>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span> PORTFÓLIO VORTEX SERVERS</div>
-    <h1>Projetos com <span>identidade própria.</span></h1>
-    <p class="lead">Conheça alguns dos servidores apresentados pela Vortex Servers. Cada comunidade tem sua proposta, sua organização e seu estilo.</p>
-    <div class="stats">
-      <div class="stat"><strong>03</strong><span>Projetos apresentados</span></div>
-      <div class="stat"><strong>03</strong><span>Categorias disponíveis</span></div>
-      <div class="stat"><strong>100%</strong><span>Foco em organização</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="heading">
-      <div class="section-label">Projetos apresentados</div>
-      <h2>Explore o portfólio.</h2>
-      <p>Use os filtros para visualizar os projetos por categoria. Os cartões são apresentados sem imagens para manter o layout leve e consistente.</p>
-    </div>
-
-    <div class="filters" role="group" aria-label="Filtrar projetos">
-      <button class="filter active" type="button" data-filter="todos" aria-pressed="true">Todos os projetos</button>
-      <button class="filter" type="button" data-filter="comunidade" aria-pressed="false">Comunidade</button>
-      <button class="filter" type="button" data-filter="social" aria-pressed="false">Social</button>
-      <button class="filter" type="button" data-filter="personalizado" aria-pressed="false">Personalizado</button>
-    </div>
-
-    <div class="projects" id="projects">
-      <article class="project" data-category="social">
-        <div class="project-top"><div class="project-mark" aria-hidden="true">N</div><span class="tag">Social</span></div>
-        <h3>NEXORA</h3>
-        <p>Projeto com identidade própria e estrutura organizada para reunir membros, facilitar interações e separar áreas da comunidade.</p>
-        <div class="project-details"><span class="detail">Organização de canais</span><span class="detail">Cargos</span><span class="detail">Identidade visual</span></div>
-      </article>
-
-      <article class="project" data-category="comunidade">
-        <div class="project-top"><div class="project-mark" aria-hidden="true">VZ</div><span class="tag">Comunidade</span></div>
-        <h3>VibeZ Community</h3>
-        <p>Projeto voltado para uma comunidade descontraída, com áreas separadas para conversas, convivência e participação dos membros.</p>
-        <div class="project-details"><span class="detail">Canais sociais</span><span class="detail">Cargos</span><span class="detail">Organização</span></div>
-      </article>
-
-      <article class="project" data-category="personalizado">
-        <div class="project-top"><div class="project-mark" aria-hidden="true">VC</div><span class="tag">Personalizado</span></div>
-        <h3>Vortex Community</h3>
-        <p>Projeto da própria comunidade Vortex, com estrutura organizada para comunicação, suporte e áreas destinadas aos membros.</p>
-        <div class="project-details"><span class="detail">Estrutura de canais</span><span class="detail">Cargos e permissões</span><span class="detail">Suporte</span></div>
-      </article>
-
-      <div class="empty" id="empty">Nenhum projeto encontrado nesta categoria.</div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="callout">
-      <div><div class="section-label">Seu projeto pode ser o próximo</div><h2>Vamos estruturar seu servidor?</h2><p>Escolha um dos planos disponíveis e converse conosco para alinhar os recursos e detalhes da sua comunidade.</p></div>
-      <a class="btn primary" href="index.html#planos">Ver planos e preços ↗</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> Vortex Servers. Todos os direitos reservados.</p>
-    <nav class="footer-links" aria-label="Links do rodapé">
-      <a href="index.html">Início</a><a href="index.html#planos">Planos</a><a href="portfolio.html">Portfólio</a><a href="https://discord.gg/SjYt47V4yb" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://wa.me/5521964048970" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </nav>
-  </div>
-</footer>
-
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b16"><meta name="description" content="Veja projetos e exemplos da Vortex Servers."><title>Portfólio | Vortex Servers</title><link rel="icon" type="image/png" href="assets/logo-vortex.png"><style>
+:root{--bg:#070b16;--panel:#0e1729;--panel2:#101d32;--blue:#168cff;--cyan:#00d5ff;--text:#f4f8ff;--muted:#a8b6cc;--line:#23324c;--green:#7af0bf}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#10264b 0,transparent 36%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(1140px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#070b16ed;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px;white-space:nowrap}.brand img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 10px #008cff35)}.brand span{color:var(--cyan)}.links{display:flex;align-items:center;gap:23px;color:#c6d3e7;font-size:14px}.links a:hover,.footer-links a:hover{color:var(--cyan)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;background:linear-gradient(110deg,#0878f9,#00bce9);font-weight:800;color:white;border:1px solid #50c9ff44;box-shadow:0 8px 28px #008cff20;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn.secondary{background:#101b2d;border:1px solid #2a4568;box-shadow:none}.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid #1c6ab0;border-radius:999px;color:#7edcff;background:#0b2340;font-size:11px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase}.gradient{background:linear-gradient(90deg,#fff,#72d9ff 55%,#2788ff);color:transparent;background-clip:text}.hero{padding:90px 0 78px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;min-height:555px}.hero h1{font-size:clamp(39px,5.4vw,66px);line-height:1.06;letter-spacing:-2px;margin:22px 0}.hero p{font-size:18px;color:var(--muted);max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}.hero-art{position:relative;display:grid;place-items:center;min-height:330px}.hero-art:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:#008cff28;filter:blur(58px)}.hero-art img{position:relative;width:min(100%,390px);filter:drop-shadow(0 0 35px #007bff50);animation:float 5s ease-in-out infinite}@keyframes float{50%{transform:translateY(-10px)}}
+section{padding:74px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 38px}.kicker{color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}.section-head h2{font-size:clamp(28px,4vw,43px);line-height:1.15;margin:10px 0}.section-head p{color:var(--muted);margin:0}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature,.plan,.project{background:linear-gradient(145deg,#111d32,#0b1221);border:1px solid var(--line);border-radius:18px;overflow:hidden}.feature{padding:25px}.feature .icon{font-size:28px}.feature h3{margin:12px 0 7px}.feature p{color:var(--muted);font-size:14px;margin:0}.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;align-items:stretch}.plan{padding:23px;display:flex;flex-direction:column;position:relative}.plan.featured{border-color:#168cff;box-shadow:0 0 35px #007bff18;transform:translateY(-7px)}.tag{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#72dfff;font-weight:900}.plan h3{font-size:20px;margin:8px 0 2px}.price{font-size:31px;font-weight:900;letter-spacing:-1px;margin:8px 0}.price small{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:0}.free{color:var(--green)}.plan p{color:var(--muted);font-size:13px;min-height:50px}.plan ul{padding-left:18px;color:#d7e2f3;font-size:13px;flex:1}.plan li{margin:8px 0}.plan .btn{margin-top:15px;font-size:12px;padding:11px 9px}.fineprint{color:#8fa2bd;font-size:12px;text-align:center;margin-top:20px}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.about-box{border:1px solid var(--line);background:#0c1424;border-radius:20px;padding:28px}.about-box p{color:var(--muted)}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.checks div{background:#111d30;padding:12px;border-radius:10px;font-size:13px}.cta{border:1px solid #1d4d7c;background:linear-gradient(120deg,#0c2442,#10152a);border-radius:23px;padding:37px;display:flex;justify-content:space-between;align-items:center;gap:25px}.cta h2{margin:0 0 7px;font-size:30px}.cta p{color:var(--muted);margin:0}.contact{text-align:center}.contact .actions{justify-content:center}footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:18px}
+.portfolio-hero{text-align:center;padding:80px 0 35px}.portfolio-hero h1{font-size:clamp(38px,5vw,58px);line-height:1.1;letter-spacing:-1.5px;margin:20px 0}.portfolio-hero p{color:var(--muted);max-width:700px;margin:auto}.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0 38px}.filter{cursor:pointer;border:1px solid #2a3d5a;background:#0e1729;color:#cfdaeb;padding:9px 15px;border-radius:999px;font-weight:750}.filter.active,.filter:hover{background:#0c4c85;border-color:var(--blue);color:white}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:50px}.project{transition:transform .22s,border-color .22s,box-shadow .22s}.project:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 15px 40px #007bff16}.thumb{height:230px;background:#080d17;overflow:hidden;border-bottom:1px solid var(--line)}.thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .35s}.project:hover .thumb img{transform:scale(1.035)}.info{padding:20px}.info h2{margin:7px 0;font-size:22px}.info p{margin:0;color:var(--muted);font-size:14px}.details{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.details span{background:#13233a;color:#bcd0e9;border:1px solid #223a5a;border-radius:7px;padding:4px 8px;font-size:11px}.note{text-align:center;color:var(--muted);font-size:12px;margin:0 auto 55px}
+@media(max-width:930px){.hero{grid-template-columns:1fr;text-align:center;padding-top:65px}.hero p{margin-inline:auto}.hero .actions{justify-content:center}.hero-art{min-height:230px}.hero-art img{width:270px}.plans{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.cta{flex-direction:column;text-align:center}}
+@media(max-width:600px){nav{height:67px}.links{gap:12px;font-size:12px}.links .hide-mobile{display:none}.brand{font-size:13px}.brand img{width:36px;height:36px}.nav-btn{padding:9px 11px;font-size:12px}.hero h1{letter-spacing:-1px}.plans,.grid{grid-template-columns:1fr}.plan.featured{transform:none}.cta{padding:27px 20px}.checks{grid-template-columns:1fr}section{padding:55px 0}.thumb{height:240px}.portfolio-hero{padding-top:60px}}
+</style></head><body>
+<header><nav class="container"><a class="brand" href="index.html"><img src="assets/logo-vortex.png" alt="Logo Vortex Servers"><div>VORTEX <span>SERVERS</span></div></a><div class="links"><a href="index.html">Início</a><a href="index.html#planos">Planos</a><a class="hide-mobile" href="index.html#sobre">Sobre</a><a href="portfolio.html">Portfólio</a></div><a class="btn nav-btn" href="https://discord.gg/twBWKWDZWF" target="_blank" rel="noopener noreferrer">Discord ↗</a></nav></header><main><section class="portfolio-hero container"><div class="eyebrow">Projetos Vortex</div><h1>Nosso trabalho, <span class="gradient">na prática.</span></h1><p>Exemplos de organização, apresentação e atendimento em servidores Discord. Cada projeto pode ser adaptado ao estilo da sua comunidade.</section>
+<div class="container"><div class="filters" aria-label="Filtrar portfólio"><button class="filter active" data-filter="todos">Todos</button><button class="filter" data-filter="comunidade">Comunidade</button><button class="filter" data-filter="atendimento">Atendimento</button><button class="filter" data-filter="visual">Visual</button></div>
+<div class="grid">
+<article class="project" data-category="comunidade visual"><div class="thumb"><img src="assets/portfolio-nexora.png" alt="Imagem do projeto Nexora fornecida para o portfólio" loading="lazy"></div><div class="info"><div class="tag">Projeto 01 · Comunidade</div><h2>Nexora</h2><p>Projeto de comunidade com foco em estrutura organizada e apresentação visual.</p><div class="details"><span>Comunidade</span><span>Organização</span><span>Visual</span></div></div></article>
+<article class="project" data-category="comunidade visual"><div class="thumb"><img src="assets/portfolio-vibez.png" alt="Imagem do projeto Vibez fornecida para o portfólio" loading="lazy"></div><div class="info"><div class="tag">Projeto 02 · Comunidade</div><h2>VibeZ Community</h2><p>Regras e canais apresentados de forma clara para facilitar a experiência dos membros.</p><div class="details"><span>Comunidade</span><span>Regras</span><span>Organização</span></div></div></article>
+<article class="project" data-category="atendimento visual"><div class="thumb"><img src="assets/portfolio-vortex.png" alt="Imagem do projeto Vortex Servers fornecida para o portfólio" loading="lazy"></div><div class="info"><div class="tag">Projeto 03 · Atendimento</div><h2>Vortex Servers</h2><p>Identidade da marca e apresentação dos serviços da Vortex Servers.</p><div class="details"><span>Marca</span><span>Atendimento</span><span>Visual</span></div></div></article>
+</div><p class="note">Imagens fornecidas para apresentar os projetos. Confirme os detalhes e o escopo de cada serviço antes da contratação.</p>
+<div class="cta"><div><h2>Quer seu servidor aqui?</h2><p>Conte sua ideia e peça um orçamento personalizado.</p></div><a class="btn" href="https://wa.me/5521964048970" target="_blank" rel="noopener noreferrer">Pedir orçamento ↗</a></div></div></main><footer><div class="container footer-row"><a class="brand" href="index.html"><img src="assets/logo-vortex.png" alt="Logo Vortex Servers"><div>VORTEX <span>SERVERS</span></div></a><span>© 2026 Vortex Servers. Todos os direitos reservados.</span><div class="footer-links"><a href="index.html#planos">Planos</a><a href="portfolio.html">Portfólio</a><a href="https://discord.gg/twBWKWDZWF" target="_blank" rel="noopener noreferrer">Discord</a></div></div></footer>
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const filters = document.querySelectorAll("[data-filter]");
-const projects = document.querySelectorAll(".project");
-const empty = document.getElementById("empty");
-
-filters.forEach(button => {
-  button.addEventListener("click", () => {
-    const selected = button.dataset.filter;
-    let visible = 0;
-
-    filters.forEach(filter => {
-      const active = filter === button;
-      filter.classList.toggle("active", active);
-      filter.setAttribute("aria-pressed", String(active));
-    });
-
-    projects.forEach(project => {
-      const show = selected === "todos" || project.dataset.category === selected;
-      project.hidden = !show;
-      if (show) visible++;
-    });
-
-    empty.style.display = visible ? "none" : "block";
-  });
-});
-</script>
-</body>
-</html>
+const buttons=document.querySelectorAll('.filter');
+const projects=document.querySelectorAll('.project');
+buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>item.classList.remove('active'));button.classList.add('active');const selected=button.dataset.filter;projects.forEach(project=>{project.hidden=selected!=='todos'&&!project.dataset.category.split(' ').includes(selected);});}));
+</script></body></html>
